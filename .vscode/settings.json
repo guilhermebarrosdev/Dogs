@@ -9,5 +9,6 @@
     "public": true,
     "README-Install.md": true,
     "yarn.lock": true
-  }
+  },
+  "cSpell.words": ["usuario"]
 }
