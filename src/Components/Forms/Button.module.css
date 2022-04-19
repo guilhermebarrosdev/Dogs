@@ -6,10 +6,10 @@
   border-radius: 0.4rem;
   background: #fb1;
   color: #764701;
+  min-width: 8rem;
   padding: 0.8rem 1.2rem;
   box-sizing: border-box;
   transition: 0.1s;
-  min-width: 8rem;
 }
 
 .button:hover,

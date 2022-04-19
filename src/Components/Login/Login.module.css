@@ -6,19 +6,18 @@
 }
 
 .login::before {
-  content: '';
   display: block;
-  height: 100%;
+  content: '';
   background: url('../../Assets/login.jpg') no-repeat center center;
   background-size: cover;
 }
 
 .forms {
-  min-width: 30rem;
+  max-width: 30rem;
   padding: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 40rem) {
   .login {
     grid-template-columns: 1fr;
   }
