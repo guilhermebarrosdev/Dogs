@@ -10,5 +10,5 @@
     "README-Install.md": true,
     "yarn.lock": true
   },
-  "cSpell.words": ["estatisticas", "usuario"]
+  "cSpell.words": ["estatisticas", "usuario", "visualizacao"]
 }
