@@ -6,7 +6,6 @@
     ".gitignore": true,
     "package.json": true,
     "package-lock.json": true,
-    "public": true,
     "README-Install.md": true,
     "yarn.lock": true
   },
