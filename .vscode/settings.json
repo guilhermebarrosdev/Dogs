@@ -4,10 +4,7 @@
     "node_modules": true,
     ".vscode": true,
     ".gitignore": true,
-    "package.json": true,
-    "package-lock.json": true,
-    "README-Install.md": true,
-    "yarn.lock": true
+    "README-Install.md": true
   },
   "cSpell.words": [
     "estatisticas",
