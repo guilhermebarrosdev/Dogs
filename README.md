@@ -11,7 +11,7 @@
 
 ### 🔽 Veja funcionando:
 
-[Deploy](<a href="https://dogs-pied.vercel.app/" target="_blank">Deploy</a>)
+<a href="https://dogs-pied.vercel.app/" target="_blank">Deploy</a>
 
 <img src="https://i.imgur.com/HNjZLoJ.jpg" alt="Home do site, com feed de fotos" width="80%"/>
 
