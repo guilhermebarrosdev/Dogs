@@ -37,7 +37,13 @@ const UserHeaderNav = () => {
         <NavLink
           to="/conta"
           end
-          className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
+          className={({ isActive }) => {
+            const linkClasses = [styles.registerButton];
+            if (isActive) linkClasses.push(styles.active);
+
+            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+          }}
+          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
           // className={`${styles.active ? styles.active : ''}`}
           title="Minha Conta"
         >
@@ -46,7 +52,13 @@ const UserHeaderNav = () => {
         </NavLink>
         <NavLink
           to="/conta/estatisticas"
-          className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
+          className={({ isActive }) => {
+            const linkClasses = [styles.registerButton];
+            if (isActive) linkClasses.push(styles.active);
+
+            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+          }}
+          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
           title="Estatísticas"
         >
           <Estatisticas />
@@ -54,7 +66,13 @@ const UserHeaderNav = () => {
         </NavLink>
         <NavLink
           to="/conta/postar"
-          className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
+          className={({ isActive }) => {
+            const linkClasses = [styles.registerButton];
+            if (isActive) linkClasses.push(styles.active);
+
+            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+          }}
+          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
           title="Poste sua Foto"
         >
           <AdicionarFoto />
