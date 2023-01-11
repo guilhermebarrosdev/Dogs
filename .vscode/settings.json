@@ -4,7 +4,13 @@
     "node_modules": true,
     ".vscode": true,
     ".gitignore": true,
-    "README-Install.md": true
+    "README-Install.md": true,
+    "logo_readme.png": true,
+    "preview1.gif": true,
+    "preview-2.gif": true,
+    "yarn.lock": true,
+    "package.json": true,
+    "package-lock.json": true
   },
   "cSpell.words": [
     "estatisticas",
