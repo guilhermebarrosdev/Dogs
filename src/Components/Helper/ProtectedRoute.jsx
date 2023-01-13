@@ -1,12 +1,12 @@
 import React from 'react';
-import { UserContext } from '../../UserContext';
 import { Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ProtectedRoute = (props) => {
-  const { login } = React.useContext(UserContext);
+  const { data } = useSelector((state) => state.user);
 
-  if (login === true) return <Route {...props} />;
-  else if (login === false) return <Navigate to="/login" />;
+  if (data) return <Route {...props} />;
+  else if (data === null) return <Navigate to='/login' />;
   else return null;
 };
 
