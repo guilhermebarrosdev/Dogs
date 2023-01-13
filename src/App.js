@@ -1,5 +1,8 @@
-import './App.css';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { autoLogin } from './store/user';
+import './App.css';
 
 import UserProfile from './Components/User/UserProfile';
 import NotFound from './Components/NotFound';
@@ -9,9 +12,6 @@ import User from './Components/User/User';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { autoLogin } from './store/user';
 
 function App() {
   const dispatch = useDispatch();

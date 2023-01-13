@@ -1,12 +1,13 @@
-import React from 'react';
-import styles from './PhotoCommentsForm.module.css';
-import { PHOTO_COMMENT_POST } from '../../api';
-import { ReactComponent as Enviar } from '../../Assets/enviar.svg';
+import { useState } from 'react';
 import useFetch from '../../Hooks/useFetch';
+import { PHOTO_COMMENT_POST } from '../../api';
+import styles from './PhotoCommentsForm.module.css';
+import { ReactComponent as Enviar } from '../../Assets/enviar.svg';
+
 import Error from '../Helper/Error';
 
 const PhotoCommentsForm = ({ id, setComments, single }) => {
-  const [comment, setComment] = React.useState('');
+  const [comment, setComment] = useState('');
   const { request, error } = useFetch();
 
   async function handleSubmit(event) {
@@ -27,9 +28,9 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
     >
       <textarea
         className={styles.textarea}
-        id="comment"
-        name="comment"
-        placeholder="Comente..."
+        id='comment'
+        name='comment'
+        placeholder='Comente...'
         value={comment}
         onChange={({ target }) => setComment(target.value)}
       />

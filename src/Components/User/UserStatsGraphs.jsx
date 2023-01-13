@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './UserStatsGraphs.module.css';
+import { useEffect, useState } from 'react';
 import { VictoryPie, VictoryChart, VictoryBar } from 'victory';
+import styles from './UserStatsGraphs.module.css';
 
 const UserStatsGraphs = ({ data }) => {
-  const [graph, setGraph] = React.useState([]);
-  const [total, setTotal] = React.useState(0);
+  const [graph, setGraph] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const graphData = data.map((item) => {
       return {
         x: item.title,
@@ -43,7 +43,7 @@ const UserStatsGraphs = ({ data }) => {
       </div>
       <div className={styles.graphItem}>
         <VictoryChart>
-          <VictoryBar alignment="start" data={graph} />
+          <VictoryBar alignment='start' data={graph} />
         </VictoryChart>
       </div>
     </section>

@@ -1,18 +1,19 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPhoto } from '../../store/photo';
+
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import PhotoContent from './PhotoContent';
 import Head from '../Helper/Head';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPhoto } from '../../store/photo';
 
 const Photo = () => {
   const { id } = useParams();
   const { loading, error, data } = useSelector((state) => state.photo);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchPhoto(id));
   }, [dispatch, id]);
 

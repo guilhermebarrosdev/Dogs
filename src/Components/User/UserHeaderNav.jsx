@@ -1,21 +1,22 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '../../store/user';
+import useMedia from '../../Hooks/useMedia';
 import styles from './UserHeaderNav.module.css';
+
 import { ReactComponent as MinhasFotos } from '../../Assets/feed.svg';
 import { ReactComponent as Estatisticas } from '../../Assets/estatisticas.svg';
 import { ReactComponent as AdicionarFoto } from '../../Assets/adicionar.svg';
 import { ReactComponent as Sair } from '../../Assets/sair.svg';
-import useMedia from '../../Hooks/useMedia';
-import { useDispatch } from 'react-redux';
-import { userLogout } from '../../store/user';
 
 const UserHeaderNav = () => {
   const dispatch = useDispatch();
   const mobile = useMedia('(max-width: 768px)');
-  const [mobileMenu, setMobileMenu] = React.useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
   const { pathname } = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMobileMenu(false);
   }, [pathname]);
 
@@ -42,10 +43,8 @@ const UserHeaderNav = () => {
             const linkClasses = [styles.registerButton];
             if (isActive) linkClasses.push(styles.active);
 
-            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+            return linkClasses.join(' ');
           }}
-          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
-          // className={`${styles.active ? styles.active : ''}`}
           title='Minha Conta'
         >
           <MinhasFotos />
@@ -57,9 +56,8 @@ const UserHeaderNav = () => {
             const linkClasses = [styles.registerButton];
             if (isActive) linkClasses.push(styles.active);
 
-            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+            return linkClasses.join(' ');
           }}
-          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
           title='Estatísticas'
         >
           <Estatisticas />
@@ -71,9 +69,8 @@ const UserHeaderNav = () => {
             const linkClasses = [styles.registerButton];
             if (isActive) linkClasses.push(styles.active);
 
-            return linkClasses.join(' '); // returns "registerButton" or "registerButton active"
+            return linkClasses.join(' ');
           }}
-          // className={(isActive) => 'active' + (!isActive ? ' unselected' : '')}
           title='Poste sua Foto'
         >
           <AdicionarFoto />

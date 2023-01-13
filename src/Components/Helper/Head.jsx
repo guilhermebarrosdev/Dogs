@@ -1,7 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 const Head = (props) => {
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = props.title + ' | Dogs';
     document
       .querySelector('meta[name="description"]')

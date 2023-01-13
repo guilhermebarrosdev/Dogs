@@ -1,21 +1,22 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useFetch from '../../Hooks/useFetch';
+import useForm from '../../Hooks/useForm';
+import { PASSWORD_RESET } from '../../api';
+
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import Error from '../Helper/Error';
-import useForm from '../../Hooks/useForm';
-import useFetch from '../../Hooks/useFetch';
-import { PASSWORD_RESET } from '../../api';
-import { useNavigate } from 'react-router-dom';
 import Head from '../Helper/Head';
 
 const LoginPasswordReset = () => {
-  const [login, setLogin] = React.useState('');
-  const [key, setKey] = React.useState('');
+  const [login, setLogin] = useState('');
+  const [key, setKey] = useState('');
   const password = useForm();
   const { loading, error, request } = useFetch();
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const key = params.get('key');
     const login = params.get('login');
@@ -37,14 +38,14 @@ const LoginPasswordReset = () => {
   }
 
   return (
-    <section className="animeLeft">
-      <Head title="Resete Senha" />
-      <h1 className="title">Resete a Senha</h1>
+    <section className='animeLeft'>
+      <Head title='Resete Senha' />
+      <h1 className='title'>Resete a Senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Nova Senha"
-          type="password"
-          name="password"
+          label='Nova Senha'
+          type='password'
+          name='password'
           {...password}
         />
         {loading ? (
