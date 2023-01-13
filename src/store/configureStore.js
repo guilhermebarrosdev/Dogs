@@ -1,11 +1,13 @@
-const { configureStore, combineReducers } = require('@reduxjs/toolkit');
+import {
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit';
 
-// const middleware = [...getDefaultMiddleware, ]
+import photo from './photo';
 
-const contador = () => 0;
-
-const reducer = combineReducers({ contador });
-
-const store = configureStore({ reducer });
+const middleware = [...getDefaultMiddleware()];
+const reducer = combineReducers({ photo });
+const store = configureStore({ reducer, middleware });
 
 export default store;
