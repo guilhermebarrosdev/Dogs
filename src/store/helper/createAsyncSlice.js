@@ -1,14 +1,14 @@
+// importa o createSlice
 import { createSlice } from '@reduxjs/toolkit';
 
 /**
- * Cria uma slice com função assíncrona
+ * Cria um slice com uma função assíncrona
  * @param {Object} config
  * @param {String} config.name
  * @param {Object} config.initialState
  * @param {Object} config.reducers
- * @param {Object} config.fetchConfig
+ * @param {Function} config.fetchConfig
  */
-
 const createAsyncSlice = (config) => {
   const slice = createSlice({
     name: config.name,
@@ -16,8 +16,6 @@ const createAsyncSlice = (config) => {
       loading: false,
       data: null,
       error: null,
-      lastUpdate: 0,
-      cache: 0,
       ...config.initialState,
     },
     reducers: {
@@ -34,26 +32,23 @@ const createAsyncSlice = (config) => {
         state.data = null;
         state.error = action.payload;
       },
-      updateTime(state, action) {
-        state.lastUpdate = action.payload;
+      resetState(state) {
+        state.loading = false;
+        state.data = null;
+        state.error = null;
       },
       ...config.reducers,
     },
   });
 
-  const { fetchStarted, fetchSuccess, fetchError, updateTime } = slice.actions;
-
-  const asyncAction = (payload) => async (dispatch, getState) => {
-    const { lastUpdate, cache } = getState()[slice.name];
-    if (lastUpdate > Date.now() - cache) return;
-    console.log(lastUpdate > Date.now() - cache);
+  const { fetchStarted, fetchSuccess, fetchError } = slice.actions;
+  const asyncAction = (payload) => async (dispatch) => {
     try {
       dispatch(fetchStarted());
       const { url, options } = config.fetchConfig(payload);
       const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok === false) throw new Error(data.message);
-      dispatch(updateTime(Date.now()));
       return dispatch(fetchSuccess(data));
     } catch (error) {
       return dispatch(fetchError(error.message));
