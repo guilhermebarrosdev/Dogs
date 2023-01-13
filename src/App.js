@@ -9,8 +9,17 @@ import User from './Components/User/User';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { autoLogin } from './store/user';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(autoLogin());
+  }, [dispatch]);
+
   return (
     <div className='app'>
       <BrowserRouter>
