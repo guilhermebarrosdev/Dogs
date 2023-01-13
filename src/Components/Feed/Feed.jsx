@@ -9,7 +9,6 @@ import Error from '../Helper/Error';
 import PropTypes from 'prop-types';
 
 const Feed = ({ user }) => {
-  const [modalPhoto, setModalPhoto] = useState(null);
   const { infinite, loading, list, error } = useSelector((state) => state.feed);
   const dispatch = useDispatch();
 
@@ -44,10 +43,8 @@ const Feed = ({ user }) => {
 
   return (
     <div>
-      {modalPhoto && (
-        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
-      )}
-      {list.length > 0 && <FeedPhotos setModalPhoto={setModalPhoto} />}
+      <FeedModal />
+      {list.length > 0 && <FeedPhotos />}
       {loading && <Loading />}
       {error && <Error error={error} />}
 

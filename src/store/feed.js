@@ -18,8 +18,8 @@ const slice = createAsyncSlice({
     },
     resetState(state) {
       state.infinite = true;
-      state.lists = [];
       state.pages = 1;
+      state.list = [];
       state.data = null;
       state.error = null;
       state.loading = false;
