@@ -29,6 +29,7 @@
 <ul>
     <li><a href="https://create-react-app.dev/" target="_blank">React</a></li>
     <li><a href="https://reactrouter.com/" target="_blank">React Router</a></li>
+    <li><a href="https://redux.js.org/" target="_blank">Redux</a></li>
     <li><a href="https://github.com/FormidableLabs/victory" target="_blank">Victory</a></li>
 </ul>
 
